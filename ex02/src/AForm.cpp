@@ -39,7 +39,11 @@ class       AForm::GradeTooLowException: public std::exception
 class       AForm::NotSignedException: public std::exception
 {
     public:
-        virtual const char * what( std::string name ) const throw()
+        virtual const char * what() const throw()
+		{
+			return "<NotSignedException> The form is not signed, can't be executed.";
+		}
+		virtual const char * what( std::string name ) const throw()
         {
             _message = "<NotSignedException> The form " + name + " is not signed, can't be executed.";
             return _message.c_str();
